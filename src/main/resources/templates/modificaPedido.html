@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Editar Pedido</title> 
+    <link href="/style.css" rel="stylesheet">	
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   	<form action="#" th:action="@{/pedidos/edit/newPedido/formulario/submit}" 
+   		th:object="${pedido}" method="post">
+ 
+ 
+   		<table>
+   			<tr>
+   				<td><label>Direccion</label></td>
+   				<td>
+   					<input type="text" name="direccion"/>   					
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><label>Email</label></td>
+   				<td>
+   					<input type="text" name="email"/>
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><input type="submit" value="Aceptar"/></td>
+   			</tr>
+   		</table>
+   	</form>
+</body>
+</html>
+    	

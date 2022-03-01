@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Resumen del pedido</title> 
+    <link href="/style.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="#" th:action="@{/pedidos/listaPedidos}">
+    <h1>Resumen del pedido</h1>
+    <table>
+    	<thead>
+    	<h3>Datos del usuario</h3>
+    		<tr>
+    			<th>Nombre</th>
+    			<th>Apellidos</th>
+    			<th>DNI</th>
+    			<th>Email</th>
+    			<th>Telefono</th>
+    			<th>Direccion</th>
+    	</thead>
+    	
+    	<tbody>
+    		<tr th:each="usuario : ${user}">
+    			<td th:text="${usuario.getNombre}"/>
+    			<td th:text="${usuario.getApellidos}"/>
+    			<td th:text="${usuario.getDni}"/>
+    			<td th:text="${usuario.getEmail}"/>
+    			<td th:text="${usuario.getTelefono}"/>
+    			<td th:text="${usuario.getDireccion}"/>
+    	</tbody>
+    </table>
+    <table>
+    	<thead>
+    	<h3>Datos del pedido</h3>
+    		<tr>
+    			<th>Referencia</th>
+    			<th>Dirección</th>
+    			<th>Fecha</th>
+    			<th>Email</th>
+    	</thead>
+    	<tbody>
+    	
+    	<tr th:object="${ultimoPedido}">
+    		<td th:text="${ultimoPedido.referencia}"/>
+    		<td th:text="${ultimoPedido.direccion}"/>
+    		<td th:text="${ultimoPedido.fecha}"/>
+    		<td th:text="${ultimoPedido.email}"/>
+
+    		</tr>
+    	</tbody>
+    </table>   
+    <table>
+    	<thead>
+    	<h3>Datos de productos</h3>
+    		<tr>
+    			<th>Nombre</th>
+    			<th>Descripcion</th>
+    			<th>Precio</th>
+    			<th>Cantidad</th>
+    	</thead>
+    	<tbody>
+    		<tr th:each="producto : ${datosCantidades}">
+    			<td th:text="${producto.getKey.nombre}"/>
+    			<td th:text="${producto.getKey.descripcion}"/>
+    			<td th:text="${producto.getKey.precio}"/>
+    			<td th:text="${producto.getValue}"/>
+    			
+    		</tr>
+    	</tbody>
+    </table>
+    
+        <table id="espacio">
+    	<thead>
+    		<tr id="espacio">
+    			<th>Precio final sin IVA</th>
+    			<th>Precio final con IVA</th>
+
+    	</thead>
+    	<tbody>
+    		<tr >
+    			<td th:text="${precioTotal}"/>
+    			<td th:text="${precioTotalIva}"/>
+    		</tr>
+    			
+    					
+    	</tbody>
+    </table>
+     
+    			 <th id="espacio">Tipo de envio</th>
+   				<select>
+   				<option> Envio ordinario </option>
+   				<option> Envio certificado </option>
+   				</select>
+  
+   					<td><input type="submit" value="Aceptar"/></td>
+   				<br>
+    </form>
+</body>
+</html>

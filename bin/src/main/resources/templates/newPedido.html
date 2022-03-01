@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Login</title> 
+    <link href="/style.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   	<form action="#" th:action="@{/pedidos/newPedido/formulario/submit}" 
+   		th:object="${pedido}" method="post">
+   		
+   		
+   		<!-- th:action="${pedido.referencia != 0} ? @{/pedido/edit/submit} : @{/pedidos/newPedido/formulario/submit}"  -->
+   		
+   		
+   		<table>		
+   		<thead>
+    		<tr>
+    			<th>Nombre</th>
+    			<th>Descripcion</th>
+    			<th>Precio</th>
+    	</thead>
+    	<tbody>
+    		<tr th:each="producto : ${datosCantidades}">
+    			<td th:text="${producto.getKey.nombre}"/>
+    			<td th:text="${producto.getKey.precio}"/>
+    			<td th:text="${producto.getValue}"/>
+    			
+    		</tr>
+    		
+    		
+   			<tr>
+   				<td><label>Direccion</label></td>
+   				<td>
+   					<input name="direccion" type="text" />
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><label>Email</label></td>
+   				<td>
+   					<input name="email" type="text" />
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><label>Telefono</label></td>
+   				<td>
+   					<input name="telefono" type="text" />
+   				</td>
+   			</tr>
+
+   			<tr>
+   				<td><input type="submit" value="Aceptar"/></td>
+   			</tr>
+   		</table>
+   	</form>
+</body>
+</html>
+    	

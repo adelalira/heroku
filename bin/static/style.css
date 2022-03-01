@@ -1,0 +1,42 @@
+*{
+	
+}
+
+body{
+	background: #99badd;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	color:white;
+}
+
+table {
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #3a75c4;
+	border:3px solid;
+	border-radius:22px;
+	border-color:#3a75c4;
+	padding:1em;
+}
+
+input {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#titulos {
+	color:black;
+}
+
+td {
+	padding:1em;
+}
+
+#espacio {
+	margin:1.5em;
+	margin-left:auto;
+	margin-right:auto;
+	
+}

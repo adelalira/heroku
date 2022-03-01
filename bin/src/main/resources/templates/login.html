@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Login</title> 
+    <link href="/style.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   	<form action="#" th:action="@{/login/submit}" 
+   		th:object="${usuario}" method="post">
+   		<h1 id="titulos" th:text="${usuario.id != 0} ? 'Editar usuario' : 'Nuevo usuario'"></h1>
+   		<table>
+   			<tr>
+   				<td><label>Nickname</label></td>
+   				<td>
+   					<input name="nickname" type="text" th:field="*{nickname}" th:attrappend="readonly=${usuario.nickname > 0} ? 'readonly' : null"/>
+   					<span th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" nickname="nickname">Errores</span>
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><label>Contraseña</label></td>
+   				<td>
+   					<input name="contrasena" type="password" th:field="*{contrasena}" th:attrappend="readonly=${usuario.contrasena > 0} ? 'readonly' : null"/>
+   					<span th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}" contrasena="contrasena-error">Errores</span>
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><input type="submit" value="Aceptar"/></td>
+   			</tr>
+   		</table>
+   	</form>
+</body>
+</html>
+    	
